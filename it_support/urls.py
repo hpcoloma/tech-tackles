@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tickets.views import my_blog
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tickets/', my_blog, name='blog'),
+    # path('tickets/', my_blog, name='blog'),
 ]
