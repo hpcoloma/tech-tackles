@@ -29,7 +29,12 @@ SECRET_KEY = 'django-insecure-crmia(4$npu2!335(11(ifwujselv3l%c9m(_^2$q0_aiz+ue9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-hpcoloma-techtackles-qy97mommwdd.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = [
+    '8000-hpcoloma-techtackles-qy97mommwdd.ws.codeinstitute-ide.net',
+    '.herokuapp.com'
+    ]
+
+            
 
 
 # Application definition
