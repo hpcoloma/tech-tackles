@@ -19,3 +19,4 @@ class TicketAdmin(admin.ModelAdmin):
     list_filter = [ 'status', 'created_on', 'updated_on']
     search_fields = ['subject', 'user__username', 'description']
     raw_id_field= ['user', 'profile']
+

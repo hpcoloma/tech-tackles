@@ -79,7 +79,8 @@ WSGI_APPLICATION = 'it_support.wsgi.application'
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-hpcoloma-techtackles-qy97mommwdd.ws.codeinstitute-ide.net'
+    'https://8000-hpcoloma-techtackles-qy97mommwdd.ws.codeinstitute-ide.net',
+    'https://*.herokuapp.com'
 ]
 
 # Database
