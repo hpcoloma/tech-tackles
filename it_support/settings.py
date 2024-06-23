@@ -24,18 +24,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-crmia(4$npu2!335(11(ifwujselv3l%c9m(_^2$q0_aiz+ue9'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-hpcoloma-techtackles-qy97mommwdd.ws.codeinstitute-ide.net',
     '.herokuapp.com'
     ]
-
-            
-
 
 # Application definition
 
@@ -80,6 +77,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'it_support.wsgi.application'
 
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-hpcoloma-techtackles-qy97mommwdd.ws.codeinstitute-ide.net'
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
