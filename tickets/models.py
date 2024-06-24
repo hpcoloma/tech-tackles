@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+# Profile models
 class Profile(models.Model):
     ROLES = [
         ('Admin', 'Admin'),
@@ -16,7 +17,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-
+# Ticket model
 class Ticket(models.Model):
     STATUS_CHOICES = [
         ('Open', 'Open'),
@@ -36,6 +37,19 @@ class Ticket(models.Model):
         ordering = ["-created_on"]
 
     def __str__(self):
-        return self.title
+        return self.subject
+
+
+class Comment(models.Model):
+    ticket = models.ForeignKey(Ticket, related_name='comments', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"Comment by {self.user} on {self.ticket.subject}"
 
 
