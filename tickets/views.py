@@ -12,5 +12,13 @@ def add_comment(request, ticket_id):
 
     # Check if user is allowed to comment
     if user != ticket.created_by and ticket.profile.user != user:
+        return HttpResponseForbidden("You are not allowed to comment on this ticket.")
 
 
+    if request.method == "POST":
+        content = request.POST.get("content")
+        if content:
+                Comment.objects.create(ticket=ticket, user=user, content=content)
+                return redirect('tickets_detail', ticket_id=ticket.id)
+
+    return render(request, 'tickets/add_comment.html', {'ticket': ticket})
